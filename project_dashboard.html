@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Дашборд управления проектами</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f6fa; color: #2c3e50; }
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white; padding: 24px 40px;
+        }
+        .header h1 { font-size: 24px; margin-bottom: 4px; }
+        .header .date { font-size: 13px; opacity: 0.8; }
+        .stats {
+            display: flex; gap: 16px; padding: 20px 40px; flex-wrap: wrap;
+        }
+        .stat-card {
+            background: white; border-radius: 8px; padding: 16px 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); min-width: 160px;
+        }
+        .stat-card .number { font-size: 28px; font-weight: bold; }
+        .stat-card .label { font-size: 13px; color: #7f8c8d; margin-top: 4px; }
+        .section {
+            margin: 20px 40px; background: white; border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 24px;
+        }
+        .section h2 {
+            font-size: 18px; margin-bottom: 16px; color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1; padding-bottom: 8px;
+        }
+        table { border-collapse: collapse; }
+        td, th { padding: 8px 12px; border-bottom: 1px solid #ecf0f1; }
+        tr:hover { background: #f8f9fa; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Управление проектами по ТОС</h1>
+        <div class="date">Обновлено: 14.02.2026 13:35 | Источник: Notion</div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-card">
+            <div class="number">12</div>
+            <div class="label">Идей в воронке</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">3</div>
+            <div class="label">Активных идей</div>
+        </div>
+        <div class="stat-card">
+            <div class="number">5</div>
+            <div class="label">Проектов в работе</div>
+        </div>
+        <div class="stat-card">
+            <div class="number" style="color:#27ae60">2</div>
+            <div class="label">Опережают график</div>
+        </div>
+        <div class="stat-card">
+            <div class="number" style="color:#e74c3c">1</div>
+            <div class="label">Отстают</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Поток 1: Воронка идей (Предподготовка)</h2>
+        <div>                            <div id="3bc44f7a-a42a-4d04-8cd9-f75df02c79da" class="plotly-graph-div" style="height:500px; width:700px;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("3bc44f7a-a42a-4d04-8cd9-f75df02c79da")) {                    Plotly.newPlot(                        "3bc44f7a-a42a-4d04-8cd9-f75df02c79da",                        [{"customdata":["\u0418\u043d\u0442\u0435\u0433\u0440\u0430\u0446\u0438\u044f \u041b\u0438\u0447\u043d\u043e\u0433\u043e \u043a\u0430\u0431\u0438\u043d\u0435\u0442\u0430 \u043a\u043b\u0438\u0435\u043d\u0442\u0430. (\u043f\u0435\u0440\u0435\u0430\u043d\u0430\u043b\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u0442\u044c) (\u041d\u0435 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u043b)\u003cbr\u003e\u041e\u043f\u0442\u0438\u043c\u0438\u0437\u0430\u0446\u0438\u044f \u0442\u043e\u0432\u0430\u0440\u043d\u044b\u0445 \u0437\u0430\u043f\u0430\u0441\u043e\u0432 (ABC-\u0430\u043d\u0430\u043b\u0438\u0437) \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0442\u043e\u0432\u0430\u0440\u043e\u0437\u0430\u043f\u0430\u0441\u0430\u043c\u0438 (\u041d\u0435 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u043b)\u003cbr\u003e\u0420\u0430\u0441\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044c \u043f\u0440\u0438\u043c\u0435\u043d\u0435\u043d\u0438\u044f 1 YES\u003cbr\u003e\u0418\u043d\u0442\u0435\u0433\u0440\u0430\u0446\u0438\u044f Telegram \u0441 CRM \u0438 Helpdesk-\u0441\u0438\u0441\u0442\u0435\u043c\u0430\u043c\u0438 \u0447\u0435\u0440\u0435\u0437 API (\u041d\u0435 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u043b)\u003cbr\u003e\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u043d\u0438\u0435 \u0418\u0418 \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430 \u0432 \u043d\u0430\u0448\u0435\u0439 \u0431\u0430\u0437\u0435 \u0434\u0430\u043d\u043d\u044b\u0445 (\u041d\u0435 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u043b)\u003cbr\u003e\u0420\u0430\u0437\u0432\u0438\u0442\u0438\u0435 \u043f\u0430\u0440\u0442\u043d\u0435\u0440\u0441\u0442\u0432\u0430 \u0441 \u043a\u0438\u0442\u0430\u0439\u0441\u043a\u0438\u043c\u0438 \u0438\u043d\u0436\u0438\u043d\u0438\u0440\u0438\u043d\u0433\u043e\u0432\u044b\u043c\u0438 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u044f\u043c\u0438\u003cbr\u003e\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0430 \u0441\u043a\u0432\u043e\u0437\u043d\u043e\u0439 \u043c\u0430\u0440\u043a\u0435\u0442\u0438\u043d\u0433\u043e\u0432\u043e\u0439 \u0430\u043d\u0430\u043b\u0438\u0442\u0438\u043a\u0438 \u0432 CRM (\u041d\u0435 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u043b)\u003cbr\u003e\u0418\u043d\u0442\u0435\u0433\u0440\u0430\u0446\u0438\u044f \u043c\u0430\u0440\u043a\u0435\u0442\u043f\u043b\u0435\u0439\u0441\u043e\u0432 \u0432 ERP-\u0441\u0438\u0441\u0442\u0435\u043c\u0443. (\u041d\u0435 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u043b)\u003cbr\u003e\u0420\u0430\u0437\u0431\u0438\u0440\u0430\u0442\u044c \u0432\u0445\u043e\u0434\u044f\u0449\u0443\u044e \u043f\u043e\u0447\u0442\u0443 \u0441 \u0418\u0418 \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438 \u0441\u043e\u0437\u0434\u0430\u0432\u0430\u044f \u043b\u0438\u0434 (\u041d\u0435 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u043b)\u003cbr\u003e\u0412\u043d\u0435\u0434\u0440\u0435\u043d\u0438\u0435 \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u043e\u0432 1\u0421 \u0430\u043d\u0430\u043b\u0438\u0442\u0438\u043a\u0430 (\u0442\u0438\u043f\u043e \u0440\u0443\u0442\u0440\u0435\u043a\u0435\u0440) (\u041d\u0435 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u043b)","\u041f\u043e\u0441\u0442\u0440\u043e\u0435\u043d\u0438\u0435 \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0438 \u043d\u0430 \u0431\u0430\u0437\u0435 \u0431\u0438\u0437\u043d\u0435\u0441 \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u043e\u0432","\u041d\u0435\u0442 \u043f\u0440\u043e\u0435\u043a\u0442\u043e\u0432","\u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0433\u043e \u0443\u0447\u0435\u0442\u0430 \u0432 \u0446\u0435\u0445\u0430\u0445 + \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u043f\u0440\u043e\u0435\u043a\u0442\u0430\u043c\u0438 (\u041d\u0435 \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u043b)"],"hovertemplate":"\u003cb\u003e%{y}\u003c\u002fb\u003e\u003cbr\u003e\u041f\u0440\u043e\u0435\u043a\u0442\u043e\u0432: %{x}\u003cbr\u003e\u003cbr\u003e%{customdata}\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":["#95a5a6","#3498db","#f39c12","#27ae60"]},"text":[" (10)"," (1)"," (0)"," (1)"],"textinfo":"value+text","x":[10,1,0,1],"y":["1. \u0418\u0434\u0435\u044f","2. \u041f\u043b\u0430\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435","3. \u0421\u043e\u0433\u043b\u0430\u0441\u043e\u0432\u0430\u043d\u0438\u0435","4. \u0423\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0438\u0435"],"type":"funnel"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"title":{"font":{"size":20,"color":"#2c3e50"},"text":"\u0412\u043e\u0440\u043e\u043d\u043a\u0430 \u0438\u0434\u0435\u0439 \u2014 \u041f\u0440\u0435\u0434\u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0430","x":0.5,"xanchor":"center"},"margin":{"t":80,"b":40,"l":20,"r":20},"plot_bgcolor":"white","height":500,"width":700},                        {"responsive": true}                    )                };            </script>        </div>
+        
+    <table style="width:100%;border-collapse:collapse;font-family:sans-serif;font-size:14px;margin-top:20px">
+        <thead>
+            <tr style="background:#4472C4;color:white">
+                <th style="padding:8px;text-align:left">Название</th>
+                <th style="padding:8px;text-align:left">Стадия</th>
+                <th style="padding:8px;text-align:left">Статус</th>
+                <th style="padding:8px;text-align:center">Ценность</th>
+                <th style="padding:8px;text-align:center">Прогресс</th>
+                <th style="padding:8px;text-align:left">Координатор</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Автоматизация производственного учета в цехах + управление проектами</td>
+            <td>4. Утверждение</td>
+            <td><span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Не стартовал</span></td>
+            <td style="text-align:center">10</td>
+            <td style="text-align:center">19%</td>
+            <td>Мануляк Василий Васильевич</td>
+        </tr>
+        <tr>
+            <td>Рассмотреть возможность применения 1 YES</td>
+            <td>1. Идея</td>
+            <td><span style="background:#27ae60;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Актуальный</span></td>
+            <td style="text-align:center">8</td>
+            <td style="text-align:center">0%</td>
+            <td>Суджюс Мантас</td>
+        </tr>
+        <tr>
+            <td>Построение компании на базе бизнес процессов</td>
+            <td>2. Планирование</td>
+            <td><span style="background:#27ae60;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Актуальный</span></td>
+            <td style="text-align:center">8</td>
+            <td style="text-align:center">6%</td>
+            <td>Суджюс Мантас</td>
+        </tr>
+        <tr>
+            <td>Интеграция Telegram с CRM и Helpdesk-системами через API</td>
+            <td>1. Идея</td>
+            <td><span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Не стартовал</span></td>
+            <td style="text-align:center">7</td>
+            <td style="text-align:center">0%</td>
+            <td>Суджюс Мантас</td>
+        </tr>
+        <tr>
+            <td>Оптимизация товарных запасов (ABC-анализ) управление товарозапасами</td>
+            <td>1. Идея</td>
+            <td><span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Не стартовал</span></td>
+            <td style="text-align:center">6</td>
+            <td style="text-align:center">2%</td>
+            <td>Мануляк Василий Васильевич</td>
+        </tr>
+        <tr>
+            <td>Развитие партнерства с китайскими инжиниринговыми компаниями</td>
+            <td>1. Идея</td>
+            <td><span style="background:#27ae60;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Актуальный</span></td>
+            <td style="text-align:center">4</td>
+            <td style="text-align:center">0%</td>
+            <td>Мануляк Василий Васильевич</td>
+        </tr>
+        <tr>
+            <td>Интеграция Личного кабинета клиента. (переанализировать)</td>
+            <td>1. Идея</td>
+            <td><span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Не стартовал</span></td>
+            <td style="text-align:center">3</td>
+            <td style="text-align:center">0%</td>
+            <td>Суджюс Мантас</td>
+        </tr>
+        <tr>
+            <td>Интеграция маркетплейсов в ERP-систему.</td>
+            <td>1. Идея</td>
+            <td><span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Не стартовал</span></td>
+            <td style="text-align:center">2</td>
+            <td style="text-align:center">0%</td>
+            <td>Суджюс Мантас</td>
+        </tr>
+        <tr>
+            <td>Использование ИИ для поиска в нашей базе данных</td>
+            <td>1. Идея</td>
+            <td><span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Не стартовал</span></td>
+            <td style="text-align:center">1</td>
+            <td style="text-align:center">0%</td>
+            <td>Суджюс Мантас</td>
+        </tr>
+        <tr>
+            <td>Настройка сквозной маркетинговой аналитики в CRM</td>
+            <td>1. Идея</td>
+            <td><span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Не стартовал</span></td>
+            <td style="text-align:center">1</td>
+            <td style="text-align:center">0%</td>
+            <td>Суджюс Мантас</td>
+        </tr>
+        <tr>
+            <td>Разбирать входящую почту с ИИ автоматически создавая лид</td>
+            <td>1. Идея</td>
+            <td><span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Не стартовал</span></td>
+            <td style="text-align:center">1</td>
+            <td style="text-align:center">0%</td>
+            <td>Суджюс Мантас</td>
+        </tr>
+        <tr>
+            <td>Внедрение инструментов 1С аналитика (типо рутрекер)</td>
+            <td>1. Идея</td>
+            <td><span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Не стартовал</span></td>
+            <td style="text-align:center">1</td>
+            <td style="text-align:center">0%</td>
+            <td>Суджюс Мантас</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="section">
+        <h2>Поток 2: TOC Buffer Management (Исполнение)</h2>
+        <div>                            <div id="b6c494fa-dc3e-4757-aaa5-7e9954ec372e" class="plotly-graph-div" style="height:700px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("b6c494fa-dc3e-4757-aaa5-7e9954ec372e")) {                    Plotly.newPlot(                        "b6c494fa-dc3e-4757-aaa5-7e9954ec372e",                        [{"hoverinfo":"skip","line":{"width":0},"mode":"lines","showlegend":false,"x":[0,1,2,3,4,5],"y":[0,0,0,0,0,0],"type":"scatter"},{"fill":"tonexty","fillcolor":"rgba(50, 205, 50, 0.25)","hoverinfo":"skip","line":{"width":0},"mode":"lines","name":"\u0417\u0435\u043b\u0435\u043d\u0430\u044f \u0437\u043e\u043d\u0430 (\u043e\u043f\u0435\u0440\u0435\u0436\u0435\u043d\u0438\u0435)","showlegend":true,"x":[0,1,2,3,4,5],"y":[0,5,25,45,65,85],"type":"scatter"},{"fill":"tonexty","fillcolor":"rgba(255, 255, 0, 0.25)","hoverinfo":"skip","line":{"width":0},"mode":"lines","name":"\u0416\u0435\u043b\u0442\u0430\u044f \u0437\u043e\u043d\u0430 (\u043d\u043e\u0440\u043c\u0430)","showlegend":true,"x":[0,1,2,3,4,5],"y":[0,35,55,75,95,115],"type":"scatter"},{"fill":"tonexty","fillcolor":"rgba(255, 0, 0, 0.25)","hoverinfo":"skip","line":{"width":0},"mode":"lines","name":"\u041a\u0440\u0430\u0441\u043d\u0430\u044f \u0437\u043e\u043d\u0430 (\u043e\u0442\u0441\u0442\u0430\u0432\u0430\u043d\u0438\u0435)","showlegend":true,"x":[0,1,2,3,4,5],"y":[120,120,120,120,120,120],"type":"scatter"},{"hovertemplate":"\u0418\u0434\u0435\u0430\u043b: %{y}%\u003cextra\u003e\u003c\u002fextra\u003e","line":{"color":"gray","dash":"dash","width":3},"mode":"lines","name":"\u0418\u0434\u0435\u0430\u043b\u044c\u043d\u0430\u044f \u0442\u0440\u0430\u0435\u043a\u0442\u043e\u0440\u0438\u044f","x":[0,1,2,3,4,5],"y":[0,20,40,60,80,100],"type":"scatter"},{"customdata":[["\u041f\u043e\u043f\u043e\u0432 \u0413\u0435\u043d\u043d\u0430\u0434\u0438\u0439 \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u0438\u0447","\u0421\u0443\u0434\u0436\u044e\u0441 \u041c\u0430\u043d\u0442\u0430\u0441","9. \u041f\u0440\u0438\u0435\u043c\u043a\u0430\u002f\u0417\u0430\u043a\u0440\u044b\u0442\u0438\u0435","\u0417\u0435\u043b\u0451\u043d\u044b\u0439"]],"hovertemplate":"\u003cb\u003e%{text}\u003c\u002fb\u003e\u003cbr\u003e\u0412\u043b\u0430\u0434\u0435\u043b\u0435\u0446: %{customdata[0]}\u003cbr\u003e\u041a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u043e\u0440: %{customdata[1]}\u003cbr\u003e\u0421\u0442\u0430\u0434\u0438\u044f: %{customdata[2]}\u003cbr\u003e\u041f\u043e\u0442\u0440\u0435\u0431\u043b\u0435\u043d\u043e \u0432\u0440\u0435\u043c\u0435\u043d\u0438: %{y:.1f}%\u003cbr\u003e\u0421\u0442\u0430\u0442\u0443\u0441 \u0431\u0443\u0444\u0435\u0440\u0430: %{customdata[3]}\u003cbr\u003e\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"rgba(128, 128, 128, 0.85)","line":{"color":"darkgray","width":2},"size":[24]},"mode":"markers","name":"\u041f\u0440\u043e\u0435\u043a\u0442\u044b","text":["\u0418\u0418 \u043f\u043e\u043c\u043e\u0449\u043d\u0438\u043a \u0418\u043d\u043d\u0430."],"x":[5],"y":[53.7],"type":"scatter"},{"customdata":[["\u041c\u0430\u043d\u0443\u043b\u044f\u043a \u0412\u0430\u0441\u0438\u043b\u0438\u0439 \u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432\u0438\u0447","\u041c\u0430\u043d\u0443\u043b\u044f\u043a \u0412\u0430\u0441\u0438\u043b\u0438\u0439 \u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432\u0438\u0447","5. \u041f\u0440\u043e\u0435\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435","\u041a\u0440\u0430\u0441\u043d\u044b\u0439"],["\u0421\u0443\u0434\u0436\u044e\u0441 \u041c\u0430\u043d\u0442\u0430\u0441","\u0421\u0443\u0434\u0436\u044e\u0441 \u041c\u0430\u043d\u0442\u0430\u0441","9. \u041f\u0440\u0438\u0435\u043c\u043a\u0430\u002f\u0417\u0430\u043a\u0440\u044b\u0442\u0438\u0435","\u0416\u0451\u043b\u0442\u044b\u0439"],["\u0421\u043e\u043a\u043e\u043b\u043e\u0432 \u041c\u0430\u043a\u0441\u0438\u043c \u0410\u0434\u043d\u0440\u0435\u0435\u0432\u0438\u0447","\u041c\u0430\u043d\u0443\u043b\u044f\u043a \u0412\u0430\u0441\u0438\u043b\u0438\u0439 \u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432\u0438\u0447","9. \u041f\u0440\u0438\u0435\u043c\u043a\u0430\u002f\u0417\u0430\u043a\u0440\u044b\u0442\u0438\u0435","\u0417\u0435\u043b\u0451\u043d\u044b\u0439"],["\u0417\u0438\u043d\u043e\u0432\u044c\u0435\u0432 \u041c\u0430\u043a\u0441\u0438\u043c \u0412\u0430\u0434\u0438\u043c\u043e\u0432\u0438\u0447","\u0421\u0443\u0434\u0436\u044e\u0441 \u041c\u0430\u043d\u0442\u0430\u0441","8. \u0412\u043d\u0435\u0434\u0440\u0435\u043d\u0438\u0435","\u0416\u0451\u043b\u0442\u044b\u0439"]],"hovertemplate":"\u003cb\u003e%{text}\u003c\u002fb\u003e\u003cbr\u003e\u0418\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442 1\u0421 \u0440\u0435\u0441\u0443\u0440\u0441\u003cbr\u003e\u003cb\u003e%{text}\u003c\u002fb\u003e\u003cbr\u003e\u0412\u043b\u0430\u0434\u0435\u043b\u0435\u0446: %{customdata[0]}\u003cbr\u003e\u041a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442\u043e\u0440: %{customdata[1]}\u003cbr\u003e\u0421\u0442\u0430\u0434\u0438\u044f: %{customdata[2]}\u003cbr\u003e\u041f\u043e\u0442\u0440\u0435\u0431\u043b\u0435\u043d\u043e \u0432\u0440\u0435\u043c\u0435\u043d\u0438: %{y:.1f}%\u003cbr\u003e\u0421\u0442\u0430\u0442\u0443\u0441 \u0431\u0443\u0444\u0435\u0440\u0430: %{customdata[3]}\u003cbr\u003e\u003cextra\u003e\u003c\u002fextra\u003e","marker":{"color":"rgba(255, 215, 0, 0.9)","line":{"color":"darkgoldenrod","width":2},"size":[8,16,48,8]},"mode":"markers","name":"\u041f\u0440\u043e\u0435\u043a\u0442\u044b \u0441 1\u0421 \u0440\u0435\u0441\u0443\u0440\u0441\u043e\u043c","text":["\u041e\u0446\u0438\u0444\u0440\u043e\u0432\u043a\u0430 \u0448\u0442\u0440\u0438\u0445\u043a\u043e\u0434\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u0438 WMS.","\u0412\u043d\u0435\u0434\u0440\u0435\u043d\u0438\u0435 \u0410\u0421\u041c CRM","\u041f\u0435\u0440\u0435\u0445\u043e\u0434 \u043e\u0442 \u0423\u041f\u041f \u043d\u0430 \u0415\u0420\u041f","\u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430 \u0441\u0438\u0441\u0442\u0435\u043c\u044b \u043f\u0440\u0438\u043e\u0440\u0438\u0442\u0435\u0442\u043e\u0432 \u043e\u0431\u0440\u0430\u0431\u043e\u0442\u043a\u0438 \u0437\u0430\u0434\u0430\u0447 1\u0421"],"x":[1,5,5,4],"y":[45.5,94.1,80.2,82.9],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"title":{"font":{"size":20,"color":"#2c3e50"},"text":"TOC Buffer Management \u2014 \u0418\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u0435 \u043f\u0440\u043e\u0435\u043a\u0442\u043e\u0432","x":0.5,"xanchor":"center"},"xaxis":{"title":{"text":"\u0421\u0442\u0430\u0434\u0438\u044f \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f"},"range":[0,6],"tickmode":"array","tickvals":[1,2,3,4,5],"ticktext":["1. \u041f\u0440\u043e\u0435\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435","2. \u0420\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430","3. \u0422\u0435\u0441\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435","4. \u0412\u043d\u0435\u0434\u0440\u0435\u043d\u0438\u0435","5. \u041f\u0440\u0438\u0435\u043c\u043a\u0430"],"gridcolor":"lightgray","showgrid":true},"yaxis":{"title":{"text":"\u041f\u043e\u0442\u0440\u0435\u0431\u043b\u0435\u043d\u043d\u043e\u0435 \u0432\u0440\u0435\u043c\u044f (%)"},"range":[0,120],"gridcolor":"lightgray","showgrid":true},"legend":{"x":1.05,"y":1,"xanchor":"left","yanchor":"top","bgcolor":"rgba(255, 255, 255, 0.8)","bordercolor":"gray","borderwidth":1},"margin":{"r":200},"plot_bgcolor":"white","hovermode":"closest","height":700},                        {"responsive": true}                    )                };            </script>        </div>
+        
+    <table style="width:100%;border-collapse:collapse;font-family:sans-serif;font-size:14px;margin-top:20px">
+        <thead>
+            <tr style="background:#70AD47;color:white">
+                <th style="padding:8px;text-align:left">Проект</th>
+                <th style="padding:8px;text-align:left">Стадия</th>
+                <th style="padding:8px;text-align:center">Время %</th>
+                <th style="padding:8px;text-align:center">Прогресс %</th>
+                <th style="padding:8px;text-align:center">Буфер</th>
+                <th style="padding:8px;text-align:left">Владелец</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Внедрение АСМ CRM [1С]</td>
+            <td>9. Приемка/Закрытие</td>
+            <td style="text-align:center">94.1%</td>
+            <td style="text-align:center">96%</td>
+            <td style="text-align:center"><span style="background:#f39c12;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Жёлтый</span></td>
+            <td>Суджюс Мантас</td>
+        </tr>
+        <tr>
+            <td>Разработка системы приоритетов обработки задач 1С [1С]</td>
+            <td>8. Внедрение</td>
+            <td style="text-align:center">82.9%</td>
+            <td style="text-align:center">88%</td>
+            <td style="text-align:center"><span style="background:#f39c12;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Жёлтый</span></td>
+            <td>Зиновьев Максим Вадимович</td>
+        </tr>
+        <tr>
+            <td>Переход от УПП на ЕРП [1С]</td>
+            <td>9. Приемка/Закрытие</td>
+            <td style="text-align:center">80.2%</td>
+            <td style="text-align:center">100%</td>
+            <td style="text-align:center"><span style="background:#27ae60;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Зелёный</span></td>
+            <td>Соколов Максим Аднреевич</td>
+        </tr>
+        <tr>
+            <td>ИИ помощник Инна.</td>
+            <td>9. Приемка/Закрытие</td>
+            <td style="text-align:center">53.7%</td>
+            <td style="text-align:center">96%</td>
+            <td style="text-align:center"><span style="background:#27ae60;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Зелёный</span></td>
+            <td>Попов Геннадий Сергеевич</td>
+        </tr>
+        <tr>
+            <td>Оцифровка штрихкодирования и WMS. [1С]</td>
+            <td>5. Проектирование</td>
+            <td style="text-align:center">45.5%</td>
+            <td style="text-align:center">22%</td>
+            <td style="text-align:center"><span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:4px;font-size:12px">Красный</span></td>
+            <td>Мануляк Василий Васильевич</td>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>
